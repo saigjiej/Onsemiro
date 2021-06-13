@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style_mypage.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+  <!-- <script type="text/javascript" src="../js/jquery.fullPage.js"></script> -->
+  <!-- <script type="text/javascript" src="../js/fullpage_control.js"></script> -->
+  <title>온새미로 - 마이페이지</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="menu">
+      <!-- 상단 메뉴-->
+      <ul>
+        <!--로고-->
+        <li><a href="/"><img src="logo.png" style="max-width: 80%; height: auto; margin-top:10%; margin-left:20%"></a>
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li><a href="/">홈</a></li>
+        <li>
+          <div class="dropdown">
+            <a href="" class="dropbtn">분리수거 정보</a>
+            <div class="dropdown-content">
+              <a href="/swc_way">분리수거 방법</a>
+              <a href="/swc_reason">분리수거 이유</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/point">새싹 포인트</a></li>
+        <li></li>
+        <li id="login_li"><a href="/login" style="color:#17242B;">로그인</a></li>
+        <li id="signup_li"><a href="/signup" style="color:#17242B;">회원가입</a></li>
+      </ul>
+    </div>
+    <div class="wrap">
+      <div class="content" id="left_box">
+        <div id="_tree">
+          <button type="submit" onclick="zzz()">불러오기</button>
+        </div>
+        <div id="_point">
+          <%=point%>
+        </div>
+      </div>
+      <div class="content" id="right_box">
+        <span id="user_name">
+          <%=name%> 님
+        </span><br>
+        <span id="user_email">
+          <%=email%>
+        </span><br>
+        <button id="change_password"><a href="/change-password">비밀번호 변경</a></button>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_element">
+      <img src="logo.png" style="max-width: 130px; height: auto;"><br>
+      ©2021 by Jiyoon Park and Sukmin Lee
+    </div>
+    <div class="footer_element">
+      Tel) 010 5135 4735 | 010 6292 4267<br>
+      Email) s2019s12@e-mirim.hs.kr | s2019s16@e-mirim.hr.kr<br>
+      Address) Mirim Girl's Information and Science High School<br>
+    </div>
+    <div class="footer_element">
+      Source Code<br>
+      Github Link
+    </div>
+  </div>
+  <script>
+    function zzz(){
+      console.log("안녕");
+      console.log("클릭");
+      let _point = document.querySelector("#_point");
+      let _tree = document.querySelector("#_tree");
+    
+      console.log("클릭");
+
+      if (Number(_point) <= 0) {
+    
+      }
+    
+      let img = document.createElement("img");
+
+      let num = parseInt(_point.innerHTML.trim());
+
+      if (0 < num && num <= 5) {
+        img.setAttribute("src", "step01" + ".gif");
+        _tree.appendChild(img);
+      } else if (num <= 10) {
+        img.setAttribute("src", "step02" + ".gif")
+      } else if (num <= 15) {
+        img.setAttribute("src", "step03" + ".gif")
+      } else if (num <= 20) {
+        img.setAttribute("src", "step04" + ".gif")
+      } else if (num <= 25) {
+        img.setAttribute("src", "step05" + ".gif")
+      } else if (num <= 30) {
+        img.setAttribute("src", "step06" + ".gif")
+      } else if (num <= 35) {
+        img.setAttribute("src", "step07" + ".gif")
+      } else if (num <= 40) {
+        img.setAttribute("src", "step08" + ".gif")
+      } else{
+        img.setAttribute("src", "step09" + ".gif")
+      }
+    }
+  </script>
+  <script type="text/javascript" src="login_confirm.js"></script>
+</body>
+</html>
