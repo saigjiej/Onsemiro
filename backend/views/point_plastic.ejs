@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_point.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="style_point_can.css">
+    <link rel="stylesheet" href="style_point_plastic.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -93,8 +93,8 @@
     const URL = "https://teachablemachine.withgoogle.com/models/xmonBZ07G/";
 
     const desc = document.querySelector("#desc");
-    const texts = ["올바르게 분리수거된 캔을 카메라에 비춰주세요",
-        "😭캔을 납작하게 눌러주세요😭", "😀Wow!! 캔이 분리수거가 아주 잘되었네요😀"]
+    const texts = ["올바르게 분리수거된 페트병을 카메라에 비춰주세요",
+        "😭페트병 안의 공기를 제거 후 눌러주세요😭", "😀Wow!! 페트병이 분리수거가 아주 잘되었네요😀"]
     desc.innerHTML = texts[0];
 
     let model, webcam, maxPredictions;
