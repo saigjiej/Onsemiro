@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 
 @font-face {
-  font-family: "배은혜체";
-  src: url("../font/나눔손글씨\ 배은혜체.ttf") format("truetype");
+  font-family: '힘내';
+  src: url('나눔손글씨 힘내라는 말보단.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+ 
 *{
   margin: 0 auto;
   padding: 0;
-  font-family: 'Nanum Gothic', sans-serif;
+  /*font-family: 'Nanum Gothic', sans-serif;*/
+  font-family: '힘내';
 }
 
 body{
@@ -43,7 +47,7 @@ li{
   text-align: center; /*텍스트 가운데 정렬*/
   background: #3AAFAA; /*백그라운드 색상 지정*/
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 a{
@@ -141,7 +145,6 @@ p{
   margin-top: 40px;
   font-size: 70px;
   font-size: bold;
-  font-family: 배은혜체;
 }
 
 
@@ -169,7 +172,6 @@ p{
   text-align: center;
   font-size: 47px;
   font-style: bold;
-  font-family: 배은혜체;
 }
 .text2 {
   color: #3AAFAA;
@@ -177,7 +179,6 @@ p{
   text-align: center;
   font-size: 47px;
   font-style: bold;
-  font-family: 배은혜체;
 }
 .text3 {
   color: #3AAFAA;
@@ -185,7 +186,6 @@ p{
   text-align: center;
   font-size: 47px;
   font-style: bold;
-  font-family: 배은혜체;
 }
 .text4 {
   color: #3AAFAA;
@@ -193,7 +193,6 @@ p{
   text-align: center;
   font-size: 47px;
   font-style: bold;
-  font-family: 배은혜체;
 }
 .text5 {
   color: #3AAFAA;
@@ -201,7 +200,6 @@ p{
   text-align: center;
   font-size: 47px;
   font-style: bold;
-  font-family: 배은혜체;
 }
 .text6 {
   color: #3AAFAA;
@@ -209,5 +207,4 @@ p{
   text-align: center;
   font-size: 47px;
   font-style: bold;
-  font-family: 배은혜체;
 }
