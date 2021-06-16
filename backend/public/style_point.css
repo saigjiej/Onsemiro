@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 
+
 @font-face {
   font-family: '힘내';
   src: url('나눔손글씨 힘내라는 말보단.ttf') format('truetype');
@@ -53,6 +54,7 @@ li{
   background: #3AAFAA; /*백그라운드 색상 지정*/
   color: #ffffff;
   font-size: 30px;
+
 }
 
 a{
