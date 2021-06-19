@@ -203,10 +203,10 @@ app.post('/change-password-process', function(req, res) {
   });
 });
 
-app.get('/point-plastic', function(req, res) {
-  return res.render('plastic', {
-  });
-});
+//app.get('/point-plastic', function(req, res) {
+//  return res.render('plastic', {
+//  });
+//});
 
 // 로그인 버튼 클릭 시 라우터
 app.get('/point', function(req, res) {
@@ -320,7 +320,7 @@ app.get('/swc_glass', function(req, res) {
 });
 
 app.get('/swc_lamp', function(req, res) {
-  res.render('swc_swc_lampbattery', {
+  res.render('swc_lamp', {
   });
 });
 
