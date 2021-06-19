@@ -52,7 +52,7 @@ li{
 
 a{
   text-decoration: none;
-  color: #ffffff;
+  color: #ffffff
 }
 
 a:hover{
@@ -66,20 +66,15 @@ p{
 }
 
 .ways{
-  width: 60%;
+  width: 80%; /* 전체적인 길이 조절 */
   display: flex; 
   flex-direction: row; /* 기본값 */ /* flex-direction: row | row-reverse | column | column-reverse */ justify-content: flex-start; /* 기본값 */ /* justify-content: flex-start | center | flex-end | space-between | space-around | space-evenly */
   justify-content: flex-start;
   flex-wrap: wrap;
+  margin-left: 15%;
+  margin-bottom: 4%;
 }
 
-.way{
-  width: 27%;
-  height: 300px;
-  background-color: #fff;
-  margin-bottom: 5%;
-  box-shadow: 10px 10px 30px 10px rgba(0, 0, 0, 0.07);
-}
 
 .footer{
   width: 100%;
@@ -176,7 +171,7 @@ p{
 
 
 .title {
-  font-size: 20px;
+  font-size: 45px;
   text-align: center;
   margin-top: 35px;
 }
@@ -187,4 +182,133 @@ p{
   background: #3AAFAA;
   margin-top: 20px;
 }
+
+
+
+
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.snip1446 {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 571px; /* 사이즈 조절 */
+  max-width: 656px;
+  max-height: 571px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+}
+.snip1446 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1446 img {
+  opacity: 1;
+  width: 100%;
+}
+.snip1446:after,
+.snip1446:before,
+.snip1446 figcaption:after,
+.snip1446 figcaption:before {
+  background: #0a0a0a;
+  width: 25%;
+  position: absolute;
+  content: '';
+  opacity: 0;
+  -webkit-transition: all 0.3s steps(4);
+  transition: all 0.3s steps(4);
+  z-index: 1;
+  top: 100%;
+  bottom: 0;
+}
+.snip1446:before {
+  left: 0;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+}
+.snip1446:after {
+  left: 25%;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+.snip1446 figcaption:before {
+  left: 50%;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  z-index: -1;
+}
+.snip1446 figcaption:after {
+  left: 75%;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  z-index: -1;
+}
+.snip1446 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 30px;
+}
+.snip1446 h2,
+.snip1446 p,
+.snip1446 .icons {
+  margin: 0;
+  width: 100%;
+  opacity: 0;
+}
+.snip1446 h2 {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.snip1446 p {
+  font-weight: 300;
+}
+.snip1446 i {
+  padding: 0px 10px;
+  display: inline-block;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+  opacity: 0.8;
+}
+.snip1446 i:hover {
+  opacity: 1;
+}
+.snip1446:hover:after,
+.snip1446.hover:after,
+.snip1446:hover:before,
+.snip1446.hover:before,
+.snip1446:hover figcaption:after,
+.snip1446.hover figcaption:after,
+.snip1446:hover figcaption:before,
+.snip1446.hover figcaption:before {
+  top: 0;
+  opacity: 0.8;
+}
+.snip1446:hover figcaption h2,
+.snip1446.hover figcaption h2,
+.snip1446:hover figcaption p,
+.snip1446.hover figcaption p,
+.snip1446:hover figcaption .icons,
+.snip1446.hover figcaption .icons {
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+.snip1446:hover figcaption h2,
+.snip1446.hover figcaption h2,
+.snip1446:hover figcaption .icons,
+.snip1446.hover figcaption .icons {
+  opacity: 1;
+}
+.snip1446:hover figcaption p,
+.snip1446.hover figcaption p {
+  opacity: 0.7;
+}
+
 
