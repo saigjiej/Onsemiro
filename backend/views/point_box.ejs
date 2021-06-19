@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_point.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="style_point_plastic.css">
+    <link rel="stylesheet" href="style_point_can.css">
+
+    <!-- 바꿈 -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- <script type="text/javascript" src="../js/jquery.fullPage.js"></script> -->
-    <!-- <script type="text/javascript" src="../js/fullpage_control.js"></script> -->
+
     <title>온새미로 - 포인트 얻기</title>
 </head>
-
 <body onload="loadingStart()">
     <div id="load">
     <div class="wrapper">
@@ -55,7 +55,7 @@
             </ul>
         </div>
         <div class="content">
-            <div id="big_title">플라스틱 페트병을 분리수거해보자🍼</div>
+            <div id="big_title">박스을 분리수거해보자📦</div>
             <!-- <button type="button" onclick="init()">Start</button> -->
             <div id="webcam-container""></div>
             <div id=" label-container" style="display: none;"></div>
@@ -90,11 +90,11 @@
       document.querySelector("body").style.background = "#ffffff";
     }
 
-    const URL = "https://teachablemachine.withgoogle.com/models/xmonBZ07G/";
+    const URL = "https://teachablemachine.withgoogle.com/models/hUfGyJauv/";
 
     const desc = document.querySelector("#desc");
-    const texts = ["📸카메라가 나올 때까지 기다려주세요📸<br/>올바르게 분리수거된 페트병을 카메라에 비춰주세요",
-        "😭페트병 안의 공기를 제거 후 눌러주세요😭", "😀Wow!! 페트병이 분리수거가 아주 잘되었네요😀"]
+    const texts = ["📸카메라가 나올 때까지 기다려주세요📸<br/>카메라가 나온다면 올바르게 분리수거된 박스을 카메라에 비춰주세요",
+        "😭박스을 다 분리해서 납작하게 눌러주세요😭", "😀Wow!! 박스가 분리수거가 아주 잘되었네요😀"]
     desc.innerHTML = texts[0];
 
     let model, webcam, maxPredictions;
@@ -108,9 +108,10 @@
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
 
-        const flip = true;
+  
+        const flip = true; // whether to flip the webcam
         webcam = new tmImage.Webcam(screen.availWidth*0.5, screen.availHeight*0.5, flip);
-        await webcam.setup();
+        await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
 
@@ -118,7 +119,7 @@
     }
 
     async function loop() {
-        webcam.update();
+        webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);
     }
@@ -142,4 +143,5 @@
             });
         }
     }
+
 </script>
