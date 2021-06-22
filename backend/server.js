@@ -11,6 +11,7 @@ const querystring = require('querystring');
 const url = require('url');
 const session = require('express-session');
 const path = require('path');
+const { query } = require("express");
 
 const router = express.Router();
 
@@ -78,7 +79,7 @@ app.post('/signup_process', function(req, res){
     "name": user.name,
     "email": user.email,
   });
-  res.redirect('/practice?' + query);
+  res.redirect('/signup_success?' + query);
 });
 
 // 회원가입 버튼 클릭 시 라우터
@@ -88,7 +89,7 @@ app.get('/signup', function(req, res) {
   });
 });
 
-app.post('/signup_success', function(req, res){
+app.get('/signup_success', function(req, res){
   var queryData = url.parse(req.url, true).query;
   return res.render('signup_success',{
     
@@ -147,6 +148,52 @@ app.post('/login_process', function(req, res) {
   res.redirect('/login_success?' + query);
 });
 
+app.post('/test_login', function(req, res) {
+  //로그인을할때 아이디와 비밀번호를 받는다
+  let testMail = "mirim3210@gmail.com";
+  let testPw = "123456"
+  User.findOne({ email: testMail }, (err, user) => {
+    if (err) {
+      return res.json({
+        loginSuccess: false,
+        message: "존재하지 않는 아이디입니다.",
+      });
+    }
+    user
+      .comparePassword(testPw)
+      .then((isMatch) => {
+        if (!isMatch) {
+          return res.json({
+            loginSuccess: false,
+            message: "비밀번호가 일치하지 않습니다",
+          });
+        }
+      //비밀번호가 일치하면 토큰을 생성한다
+      //jwt 토큰 생성하는 메소드 작성
+      user
+        .generateToken()
+        .then((user) => {
+          res
+            .cookie("x_auth", user.token)
+            .status(200)
+            .json({ loginSuccess: true, userId: user._id });
+        })
+        .catch((err) => {
+          // res.status(400).send(err);
+        });
+    })
+    .catch((err) => res.json({ loginSuccess: false, err }));
+
+    req.session.user = {
+			email: testMail,
+		};
+  });
+  const query = querystring.stringify({
+    "email": testMail
+  });
+  res.redirect('/login_success?' + query);
+});
+
 app.get('/login_success', function(req, res){
   var queryData = url.parse(req.url, true).query;
   // cookie생성
@@ -169,10 +216,16 @@ app.get('/mypage', function(req, res) {
   User.findOne({email: user_email}, (err, data) => {
     user_name = data.name;
     user_point = data.point;
+    can_point = data.can_point;
+    plastic_point = data.plastic_point;
+    box_point = data.box_point;
     res.render('my_page', {
       name: user_name,
       email: user_email,
-      point: user_point
+      point: user_point,
+      can_point: can_point,
+      plastic_point: plastic_point,
+      box_point: box_point
     });
   });
 });
@@ -240,6 +293,51 @@ app.get('/point', function(req, res) {
 app.get('/point_up', function(req, res){
   let current_login_user = req.cookies['email'];
   User.update({email: current_login_user}, {$inc: {"point": 1}}, (err, data) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+    }
+  });
+
+  // 종류별 포인트 저장
+  let queryData = url.parse(req.url, true).query;
+  if(queryData.type == "can"){
+    res.redirect('/point_up_can');
+  }else if(queryData.type == "plastic"){
+    res.redirect('/point_up_plastic');
+  }else if(queryData.type == "box"){
+    res.redirect('/point_up_box');
+  }
+});
+
+app.get("/point_up_can", function(req, res){
+  let current_login_user = req.cookies['email'];
+  User.update({email: current_login_user}, {$inc: {"can_point": 1}}, (err, data) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+    }
+  });
+  res.redirect('/point');
+});
+
+app.get("/point_up_plastic", function(req, res){
+  let current_login_user = req.cookies['email'];
+  User.update({email: current_login_user}, {$inc: {"plastic_point": 1}}, (err, data) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+    }
+  });
+  res.redirect('/point');
+});
+
+app.get("/point_up_box", function(req, res){
+  let current_login_user = req.cookies['email'];
+  User.update({email: current_login_user}, {$inc: {"box_point": 1}}, (err, data) => {
     if(err){
       console.log(err);
     }else{
